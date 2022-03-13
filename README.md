@@ -2,6 +2,17 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## TODO
+- Create nav bar at top with logo
+    - Link to GitHub with site
+    - Link to LinkedIn
+    - Projects
+    - About Me
+- Projects
+- About Me
+- Bio Stuff
+
+
 ## Available Scripts
 
 In the project directory, you can run:
