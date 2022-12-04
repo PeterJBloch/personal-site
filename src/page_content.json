@@ -1,8 +1,20 @@
 [{
-    "page_name": "home",
-    "page_id": 1,
+    "id": 0,
     "image": "zilch",
-    "heading": "Hey! I'm Peter",
+    "heading": "Hey there! I'm Peter",
     "body": "Hello there! My name is Peter Bloch, and I am a developer originally from Portland, OR.",
     "subsections": []
-}]
+},
+{
+    "id": 1,
+    "image": "nothing for now",
+    "heading": "Oregon State University Class of '22",
+    "body": "I am a recent graduate from Oregon State University, both Honors College and College of Engineering. I graduated Magna Cum Laude finishing both a major in Applied Computer Science - Robot Intelligence, and a minor in Mathematics.",
+    "subsections": [{
+        "id":0,
+        "heading": "Greek Life",
+        "image": "nada",
+        "body": "During my Sophomore year of college, I joined the Fraternity of Phi Gamma Delta's Kappa Omicron chapter at OSU. There, I was an active brother, scholarship committee member, and even chapter president for the 2021 calendar year."
+    }]
+}
+]

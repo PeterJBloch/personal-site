@@ -37,13 +37,11 @@ const employers = [{
 },]
 
 function App() {
-  var shown_page = page_content[0];
-  console.log(shown_page);
   return (
     <div>
       <Navbar>
         <NavItem icon={<Home/>}/>
-        <NavItem icon={<School/>}/>
+        <NavItem icon={<School/>} content_id="school"/>
         <NavItem icon={<Rocket/>}>
           <DropdownMenu dropdowns={employers}/>
         </NavItem>
@@ -51,7 +49,7 @@ function App() {
           <DropdownMenu dropdowns={social_medias}/>
         </NavItem>
       </Navbar>
-      <PageContent content={shown_page}></PageContent>
+      <AllPageContent content={page_content} id="page-content"></AllPageContent>
     </div>
   );
 }
@@ -68,7 +66,10 @@ function NavItem(props){
   const [open, setOpen] = useState(false);
   return(
     <li className='nav-item'>
-    <a href={props.link} className='icon-button' onClick={() => setOpen(!open)}>
+    <a href={props.link} className='icon-button' onClick={ function() {
+      setOpen(!open);
+      console.log("Click!");
+      }}>
       {props.icon}
     </a>
     { open && props.children }
@@ -82,7 +83,6 @@ function DropdownMenu(props){
       <a href={props.link} className='menu-item'>
         <span className='icon-button'>{props.leftIcon}</span>
         {props.children}
-        {/* <span className='icon-right'>{props.rightIcon}</span> */}
       </a>
     );
   }
@@ -98,10 +98,23 @@ function DropdownMenu(props){
   );
 }
 
-function PageContent(props){
+function AllPageContent(props){
+  // Load each page in
+  var pages = [];
+  props.content.forEach( function(single_page){
+    console.log("Loading page id: " + single_page.id);
+    pages.push(<SinglePage key={single_page.id} content={single_page}></SinglePage>)
+  })
+  return(pages);
+}
+
+function SinglePage(props){
   var page = props.content
-  console.log("loading " + page.page_name+ " page");
   var subsections = [];
+  page.subsections.forEach(function(section) {
+    console.log("Loading section id: "+ section.id+" for page id: "+ page.id);
+    subsections.push(<PageSection key={section.id} section={section}>{section.section_name}</PageSection>);
+  });
   return(
     <div className='PageContent'>
       <h2>{page.heading}</h2>
@@ -110,10 +123,19 @@ function PageContent(props){
           {page.body}
         </p>
       </div>
-      <div className='Subsections'>
+      <div className='subsections'>
         {subsections}
       </div>
     </div>
+  );
+}
+
+function PageSection(props){
+  return(
+  <div className='section'>
+    <h4>{props.section.heading}</h4>
+    <p>{props.section.body}</p>
+  </div>
   );
 }
 
