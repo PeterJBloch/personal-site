@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# Welcome to my personal website project
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Followed this [tutorial](https://www.youtube.com/watch?v=IF6k0uZuypA).
 
 ## TODO
 - Create nav bar at top with logo
